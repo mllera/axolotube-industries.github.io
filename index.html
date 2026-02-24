@@ -3,44 +3,63 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Axolotube Industries — Advanced Science Division</title>
+<title>AXOLOTUBE — Acceso concedido</title>
 <link rel="stylesheet" href="style.css"/>
+<script>
+function startExperiment() {
+  const msgs = [
+    "Iniciando protocolo AXO-042…",
+    "Mezclando compuestos…",
+    "⚠️ Reacción inesperada detectada…",
+    "Estabilizando sistema…",
+    "✅ Experimento completado con ÉXITO"
+  ];
+  let i = 0;
+  const box = document.getElementById("console");
+  box.innerHTML = "";
+  const interval = setInterval(() => {
+    box.innerHTML += msgs[i] + "<br/>";
+    i++;
+    if (i === msgs.length) clearInterval(interval);
+  }, 900);
+}
+</script>
 </head>
 <body>
-<header>
+<div class="scanner">ACCESS GRANTED</div>
+
+<section class="card">
   <h1>AXOLOTUBE INDUSTRIES</h1>
-  <div class="badge">Advanced Science Division</div>
-</header>
+  <p class="badge">Advanced Science Division</p>
+  <p class="small">Última verificación: 24/02/2026 – 21:48</p>
+</section>
 
 <section class="card">
   <h2>Científico Jefe Supremo</h2>
-  <h3>Manuel Llera González</h3>
-  <p><b>Chief Scientist & Director of Experimental Research</b></p>
+  <h3>Dr. Manuel Llera González</h3>
+  <p>Estado: <b>En misión científica activa</b></p>
+</section>
+
+<section class="card">
+  <h2>Proyecto secreto</h2>
+  <p><b>AXO-042</b> — Optimización de ideas brillantes</p>
+  <p class="warn">⚠️ Acceso solo para personal autorizado</p>
+  <button onclick="startExperiment()">Iniciar experimento</button>
+  <div id="console" class="console"></div>
+</section>
+
+<section class="card">
+  <h2>¿Eres apto para Axolotube?</h2>
   <ul>
-    <li>Bio-Axolotl Engineering</li>
-    <li>Innovación científica avanzada</li>
-    <li>Dirección de proyectos estratégicos</li>
+    <li>✔️ Te gusta experimentar</li>
+    <li>✔️ No te asustan las explosiones pequeñas</li>
+    <li>✔️ Guardas secretos</li>
   </ul>
+  <p class="result">Resultado: <b>APTO COMO AYUDANTE DE LABORATORIO</b></p>
 </section>
 
-<section>
-  <h2>Científicos de Renombre</h2>
-  <div class="grid">
-    <a href="scientists.html#einstein" class="card">Albert Einstein</a>
-    <a href="scientists.html#curie" class="card">Marie Curie</a>
-    <a href="scientists.html#tesla" class="card">Nikola Tesla</a>
-    <a href="scientists.html#newton" class="card">Isaac Newton</a>
-    <a href="scientists.html#lovelace" class="card">Ada Lovelace</a>
-    <a href="scientists.html#hawking" class="card">Stephen Hawking</a>
-  </div>
-</section>
-
-<section class="card small">
-  <h2>Acceso Restringido</h2>
-  <p>Instalación creativa y educativa. Proyecto ficticio.</p>
-  <a class="button" href="access.html">Solicitar Acceso</a>
-</section>
-
-<footer>© Axolotube Industries</footer>
+<footer>
+  No se lo digas a los adultos. © Axolotube Industries
+</footer>
 </body>
 </html>
