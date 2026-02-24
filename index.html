@@ -3,63 +3,91 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AXOLOTUBE — Acceso concedido</title>
+<title>AXOLOTUBE — MODO LEYENDA</title>
 <link rel="stylesheet" href="style.css"/>
 <script>
-function startExperiment() {
-  const msgs = [
-    "Iniciando protocolo AXO-042…",
-    "Mezclando compuestos…",
-    "⚠️ Reacción inesperada detectada…",
-    "Estabilizando sistema…",
-    "✅ Experimento completado con ÉXITO"
-  ];
-  let i = 0;
-  const box = document.getElementById("console");
-  box.innerHTML = "";
+let countdown = 5;
+function startLegend() {
+  const c = document.getElementById("countdown");
   const interval = setInterval(() => {
-    box.innerHTML += msgs[i] + "<br/>";
+    c.textContent = countdown;
+    countdown--;
+    if (countdown < 0) {
+      clearInterval(interval);
+      document.getElementById("intro").style.display = "none";
+      document.getElementById("legend").style.display = "block";
+    }
+  }, 1000);
+}
+
+function launchExperiment() {
+  const log = document.getElementById("log");
+  const lines = [
+    "Autorización confirmada…",
+    "Cargando laboratorio virtual…",
+    "Iniciando AXO-042…",
+    "⚠️ Pico de genialidad detectado",
+    "Estabilizando resultados…",
+    "✅ PROYECTO COMPLETADO CON ÉXITO"
+  ];
+  log.innerHTML = "";
+  let i = 0;
+  const t = setInterval(() => {
+    log.innerHTML += lines[i] + "<br/>";
     i++;
-    if (i === msgs.length) clearInterval(interval);
-  }, 900);
+    if (i === lines.length) clearInterval(t);
+  }, 800);
 }
 </script>
 </head>
-<body>
-<div class="scanner">ACCESS GRANTED</div>
+<body onload="startLegend()">
 
+<div id="intro" class="scanner">
+  ACCESO ULTRA SECRETO<br/>
+  <span class="small">Inicializando sistema…</span><br/>
+  <span id="countdown">5</span>
+</div>
+
+<div id="legend" style="display:none">
 <section class="card">
   <h1>AXOLOTUBE INDUSTRIES</h1>
-  <p class="badge">Advanced Science Division</p>
-  <p class="small">Última verificación: 24/02/2026 – 21:48</p>
+  <p class="badge">Legend Mode Activated</p>
+  <p class="small">Último acceso: 24/02/2026 – 22:06:52</p>
 </section>
 
 <section class="card">
-  <h2>Científico Jefe Supremo</h2>
+  <h2>Director Supremo del Laboratorio</h2>
   <h3>Dr. Manuel Llera González</h3>
-  <p>Estado: <b>En misión científica activa</b></p>
+  <p><b>Clasificación:</b> Científico Nivel Leyenda</p>
+  <p><b>Estado:</b> Autorización permanente</p>
 </section>
 
 <section class="card">
-  <h2>Proyecto secreto</h2>
-  <p><b>AXO-042</b> — Optimización de ideas brillantes</p>
-  <p class="warn">⚠️ Acceso solo para personal autorizado</p>
-  <button onclick="startExperiment()">Iniciar experimento</button>
-  <div id="console" class="console"></div>
+  <h2>Proyecto Clasificado AXO-042</h2>
+  <p>Objetivo: Amplificación de ideas brillantes</p>
+  <button onclick="launchExperiment()">Ejecutar protocolo</button>
+  <div id="log" class="console"></div>
 </section>
 
 <section class="card">
-  <h2>¿Eres apto para Axolotube?</h2>
+  <h2>Registro del sistema</h2>
   <ul>
-    <li>✔️ Te gusta experimentar</li>
-    <li>✔️ No te asustan las explosiones pequeñas</li>
-    <li>✔️ Guardas secretos</li>
+    <li>Experimentos exitosos: <b>1.337</b></li>
+    <li>Fallos controlados: <b>0</b></li>
+    <li>Nivel de genialidad: <b>Máximo</b></li>
   </ul>
-  <p class="result">Resultado: <b>APTO COMO AYUDANTE DE LABORATORIO</b></p>
+</section>
+
+<section class="card final">
+  <h2>Mensaje confidencial</h2>
+  <p>Si estás viendo esto es porque Manuel confía en ti.</p>
+  <p>No todos llegan hasta aquí.</p>
 </section>
 
 <footer>
-  No se lo digas a los adultos. © Axolotube Industries
+  © Axolotube Industries · Sistema activo · No divulgar
 </footer>
+</div>
+
 </body>
 </html>
